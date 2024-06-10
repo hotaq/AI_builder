@@ -3,6 +3,8 @@ import streamlit as st
 from PIL import ImageDraw
 from PIL import Image
 import torch
+import sys
+import path
 import cv2
 import os
 import time
@@ -11,6 +13,10 @@ from datetime import datetime
 import subprocess
 import shutil
 from glob import glob
+
+dir = path.Path(__file__).abspath()
+sys.path.append(dir.parent.parent)
+
 def imageInput(model,src):
 
     if src == 'upload your own data':
