@@ -1,0 +1,26 @@
+import glob
+import streamlit as st
+from PIL import ImageDraw
+from PIL import Image
+import torch
+import cv2
+import os
+import time
+from ultralytics import YOLO
+from datetime import datetime
+import subprocess
+import shutil
+from glob import glob
+model_path_yolov9 = 'C:/Users/ADMINS/Downloads/AI_builder-main/AI_builder-main/models/yolov9.pt'
+imgpath = 'data/uploads/1718019283.82902images.jpeg'
+model_path = 'C:/Users/ADMINS/Downloads/AI_builder-main/AI_builder-main/best.pt'
+command_yolov5 = f'python C:/Users/ADMINS/Downloads/AI_builder-main/AI_builder-main/yolov5-master/detect.py --weight {model_path} --img 640 --conf 0.4 --source C:/Users/ADMINS/Downloads/AI_builder-main/AI_builder-main/{imgpath} '
+subprocess.run(command_yolov5,shell=True)
+
+
+model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path_yolov9, force_reload=True)
+img = cv2.imread('image.jpg')
+img = torch.from_numpy(img)/255.0
+img = img.unsqueeze(0)
+img = torch.permute(img, (0, 3, 1, 2))
+pred = model(img)

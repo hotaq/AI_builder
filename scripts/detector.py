@@ -137,11 +137,31 @@ if __name__ == '__main__':
     save_dir = opt.save_dir
     if not os.path.exists(save_dir):
         os.mkdir(save_dir)
+    id_to_label = {
+        0: 'Interphase ',
+        1: 'class1',
+    # Add other mappings as needed
+}
     for img in imgs:
         im = cv2.imread(os.path.join(imgs_root, img))
         bboxes, scores, ids = model.detect_image(im)
+    
         for idx in range(bboxes.shape[0]):
             bbox = bboxes[idx].astype(int)
             score = scores[idx]
+            class_id = ids[idx]
+            label = id_to_label.get(class_id, 'unknown')  # Get the label for the class ID
+        
+        # Draw the bounding box
             cv2.rectangle(im, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (0, 0, 255), 2, 1)
+        
+        # Prepare the label text with score
+            label_text = f"{label}: {score:.2f}"
+        
+        # Choose a position for the label (above the top-left corner of the bounding box)
+            label_position = (bbox[0], bbox[1] - 10)
+        
+        # Draw the label on the image
+            cv2.putText(im, label_text, label_position, cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+    
         cv2.imwrite(os.path.join(save_dir, img), im)
