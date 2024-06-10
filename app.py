@@ -14,7 +14,7 @@ import subprocess
 import shutil
 from glob import glob
 
-dir = path.Path(__file__).abpath()
+dir = path.Path(__file__).abspath()
 sys.path.append(dir.parent.parent)
 
 def imageInput(model,src):
