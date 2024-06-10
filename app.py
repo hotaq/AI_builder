@@ -4,7 +4,7 @@ from PIL import ImageDraw
 from PIL import Image
 import torch
 import sys
-from os import path
+from pathlib import Path
 import cv2
 import os
 import time
