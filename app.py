@@ -14,7 +14,7 @@ import subprocess
 import shutil
 from glob import glob
 
-st.set_option('server.folderWatchBlacklist', [])
+
 
 def imageInput(model,src):
 
