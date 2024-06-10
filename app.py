@@ -13,6 +13,10 @@ from datetime import datetime
 import subprocess
 import shutil
 from glob import glob
+
+dir = path.Path(__file__).abpath()
+sys.path.append(dir.parent.parent)
+
 def imageInput(model,src):
 
     if src == 'upload your own data':
