@@ -3,6 +3,7 @@
 
 # Base ------------------------------------------------------------------------
 gitpython>=3.1.30
+ultralytics
 matplotlib>=3.3
 numpy>=1.23.5
 opencv-python-headless
