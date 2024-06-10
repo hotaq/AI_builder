@@ -4,7 +4,7 @@ from PIL import ImageDraw
 from PIL import Image
 import torch
 import sys
-from pathlib import Path
+
 import cv2
 import os
 import time
@@ -14,8 +14,7 @@ import subprocess
 import shutil
 from glob import glob
 
-dir = path.Path(__file__).abspath()
-sys.path.append(dir.parent.parent)
+st.set_option('server.folderWatchBlacklist', [])
 
 def imageInput(model,src):
 
