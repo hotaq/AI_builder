@@ -31,7 +31,7 @@ def main():
     global model, confidence, cfg_model_path
 
     st.title("PMITO Detecttion")
-
+    
     
 
     model_src = st.sidebar.selectbox('select model weight fille (recommend yolov8) ',['yolov8','yolov5+resnet50','yolov5+mobilenet','yolov9'])
@@ -46,7 +46,7 @@ def main():
         confidence = float(st.sidebar.slider(
         "select Model Confidence",20,100,30
         ))/100
-        model_path = 'main/models/Yolov8.pt'
+        model_path = 'hotaq/ai_builder/main/models/Yolov8.pt'
         model = YOLO(model_path)
         model_info_yolov8 = model.info()
         
