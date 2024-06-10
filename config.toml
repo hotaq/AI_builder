@@ -1,3 +1,16 @@
+$ pwd
+/Users/me/.streamlit
+$ cat config.toml
+[browser]
+    gatherUsageStats=false
+
+[theme]
+    primaryColor="#3d85c6"
+    backgroundColor="#FFFFFF"
+    secondaryBackgroundColor="#F0F2F6"
+    textColor="#262730"
+    font="sans serif"
+
 [server]
     # https://github.com/streamlit/streamlit/issues/5178
     fileWatcherType="poll"
