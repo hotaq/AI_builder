@@ -46,7 +46,7 @@ def main():
         confidence = float(st.sidebar.slider(
         "select Model Confidence",20,100,30
         ))/100
-        model_path = 'C:/Users/ADMINS/Downloads/AI_builder-main/AI_builder-main/models/Yolov8.pt'
+        model_path = '/models/Yolov8.pt'
         model = YOLO(model_path)
         model_info_yolov8 = model.info()
         
